@@ -7,7 +7,7 @@ import { useAppStore, type BossGesture, type BossTable, type Skin } from '@/stat
 import { Bevel, Dialog, RButton, RText, Sunken, Window } from '@/ui/Retro';
 import { FONT, useTheme } from '@/ui/theme';
 
-const PRIVACY_URL = 'https://example.com/sum10/privacy';
+const PRIVACY_URL = 'https://swclaude.github.io/sum10/docs/privacy-policy.html';
 
 function Group({ title, children }: { title: string; children: ReactNode }) {
   const t = useTheme();
