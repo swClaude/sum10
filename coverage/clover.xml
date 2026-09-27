@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1790484739199" clover="3.2.0">
+  <project timestamp="1790484739199" name="All files">
+    <metrics statements="103" coveredstatements="103" conditionals="36" coveredconditionals="36" methods="29" coveredmethods="29" elements="168" coveredelements="168" complexity="0" loc="103" ncloc="103" packages="1" files="6" classes="6"/>
+    <file name="board.ts" path="C:\Users\Owner\Documents\SUM10\src\game\board.ts">
+      <metrics statements="37" coveredstatements="37" conditionals="18" coveredconditionals="18" methods="12" coveredmethods="12"/>
+      <line num="16" count="9052" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="28" count="43" type="stmt"/>
+      <line num="32" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="36" count="48" type="cond" truecount="6" falsecount="0"/>
+      <line num="40" count="46" type="stmt"/>
+      <line num="41" count="46" type="stmt"/>
+      <line num="42" count="121" type="stmt"/>
+      <line num="43" count="46" type="stmt"/>
+      <line num="47" count="45" type="stmt"/>
+      <line num="48" count="45" type="stmt"/>
+      <line num="49" count="116" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="45" type="stmt"/>
+      <line num="54" count="97248" type="stmt"/>
+      <line num="59" count="14" type="stmt"/>
+      <line num="60" count="1013" type="stmt"/>
+      <line num="61" count="1013" type="cond" truecount="2" falsecount="0"/>
+      <line num="63" count="1" type="stmt"/>
+      <line num="67" count="43" type="stmt"/>
+      <line num="68" count="43" type="stmt"/>
+      <line num="69" count="112" type="stmt"/>
+      <line num="70" count="43" type="stmt"/>
+      <line num="78" count="44" type="stmt"/>
+      <line num="79" count="44" type="stmt"/>
+      <line num="80" count="44" type="stmt"/>
+      <line num="81" count="352" type="stmt"/>
+      <line num="82" count="352" type="stmt"/>
+      <line num="83" count="4224" type="stmt"/>
+      <line num="84" count="4224" type="cond" truecount="2" falsecount="0"/>
+      <line num="85" count="4109" type="stmt"/>
+      <line num="86" count="4109" type="cond" truecount="2" falsecount="0"/>
+      <line num="87" count="4109" type="stmt"/>
+      <line num="89" count="352" type="stmt"/>
+      <line num="90" count="352" type="stmt"/>
+      <line num="91" count="115" type="stmt"/>
+      <line num="92" count="115" type="stmt"/>
+      <line num="95" count="44" type="stmt"/>
+    </file>
+    <file name="config.ts" path="C:\Users\Owner\Documents\SUM10\src\game\config.ts">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+    </file>
+    <file name="engine.ts" path="C:\Users\Owner\Documents\SUM10\src\game\engine.ts">
+      <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+      <line num="42" count="9" type="stmt"/>
+      <line num="45" count="8" type="stmt"/>
+      <line num="46" count="8" type="stmt"/>
+      <line num="47" count="8" type="stmt"/>
+      <line num="51" count="45" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="44" type="cond" truecount="4" falsecount="0"/>
+      <line num="54" count="42" type="stmt"/>
+      <line num="55" count="42" type="stmt"/>
+      <line num="56" count="42" type="stmt"/>
+      <line num="57" count="42" type="stmt"/>
+      <line num="58" count="42" type="cond" truecount="2" falsecount="0"/>
+      <line num="60" count="42" type="stmt"/>
+      <line num="61" count="42" type="stmt"/>
+      <line num="62" count="42" type="stmt"/>
+      <line num="63" count="42" type="stmt"/>
+    </file>
+    <file name="rng.ts" path="C:\Users\Owner\Documents\SUM10\src\game\rng.ts">
+      <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+      <line num="11" count="96" type="stmt"/>
+      <line num="12" count="96" type="stmt"/>
+      <line num="14" count="21600" type="stmt"/>
+      <line num="15" count="21600" type="stmt"/>
+      <line num="16" count="21600" type="stmt"/>
+      <line num="17" count="21600" type="stmt"/>
+      <line num="18" count="21600" type="stmt"/>
+      <line num="20" count="51" type="stmt"/>
+      <line num="24" count="9" type="stmt"/>
+      <line num="27" count="117404" type="stmt"/>
+      <line num="28" count="117404" type="stmt"/>
+      <line num="29" count="960482" type="stmt"/>
+      <line num="30" count="960482" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="39" count="3" type="stmt"/>
+      <line num="40" count="3" type="stmt"/>
+      <line num="41" count="3" type="stmt"/>
+      <line num="42" count="3" type="stmt"/>
+      <line num="43" count="3" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
+    </file>
+    <file name="scoring.ts" path="C:\Users\Owner\Documents\SUM10\src\game\scoring.ts">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <line num="4" count="90" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="48" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="47" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="17" count="3" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+    </file>
+    <file name="solver.ts" path="C:\Users\Owner\Documents\SUM10\src\game\solver.ts">
+      <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="6" count="1103" type="stmt"/>
+      <line num="7" count="12197" type="stmt"/>
+      <line num="8" count="97086" type="stmt"/>
+      <line num="9" count="633567" type="stmt"/>
+      <line num="10" count="633567" type="stmt"/>
+      <line num="11" count="3053544" type="stmt"/>
+      <line num="12" count="719335" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="98027" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="1004" type="stmt"/>
+      <line num="20" count="1059" type="stmt"/>
+    </file>
+  </project>
+</coverage>

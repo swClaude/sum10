@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUM10 デザインモック</title>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+:root{--face:#C0C0C0;--hi:#fff;--sh:#808080;--dk:#000;--sel:#000080;--hit:#008080}
+*{box-sizing:border-box;-webkit-user-select:none;user-select:none}
+body{margin:0;background:#008080;font-family:"DotGothic16",monospace;display:flex;gap:32px;justify-content:center;align-items:flex-start;padding:24px 16px;flex-wrap:wrap;color:#000}
+.phone{width:393px;height:852px;background:var(--face);border-radius:48px;border:10px solid #111;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.raised{border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh)}
+.sunken{border:2px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);box-shadow:inset 1px 1px var(--dk)}
+.sb{height:47px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 6px;font-size:15px;background:var(--face)}
+.win{flex:1;display:flex;flex-direction:column;margin:0 2px;min-height:0}
+.title{height:24px;background:linear-gradient(90deg,#000080,#1084D0);color:#fff;display:flex;align-items:center;padding:0 3px 0 6px;font-size:13px;gap:6px}
+.title .t{flex:1;white-space:nowrap;overflow:hidden}
+.title .b{width:18px;height:16px;background:var(--face);color:#000;font-size:10px;display:flex;align-items:center;justify-content:center;line-height:1}
+.menu{display:flex;gap:10px;padding:3px 6px;font-size:13px;border-bottom:1px solid var(--sh)}
+.menu u{text-decoration:underline}
+.tool{display:flex;gap:3px;padding:3px 4px;border-bottom:1px solid var(--hi)}
+.tool span{width:24px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.fx{display:flex;align-items:center;gap:4px;padding:3px 4px;font-size:14px}
+.fx .ref{width:56px;height:24px;background:#fff;display:flex;align-items:center;padding-left:4px}
+.fx .fn{width:24px;text-align:center}
+.fx .fbox{flex:1;height:24px;background:#fff;display:flex;align-items:center;padding:0 4px;gap:4px}
+.fx .f{flex:1;white-space:nowrap;overflow:hidden}
+.fx .v{min-width:28px;text-align:right}
+.fx .v.hit{color:var(--hit)}
+.gw{margin:0 4px;background:#fff;flex:1;min-height:0;overflow:hidden}
+.grid{display:grid;grid-template-columns:28px repeat(8,1fr);touch-action:none;align-content:start;overflow:hidden;position:relative;height:100%}
+.grid div{border-right:1px solid var(--face);border-bottom:1px solid var(--face);height:45px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;font-size:19px;background:#fff}
+.grid .h,.grid .r{background:var(--face);color:#000;font-size:12px;justify-content:center;padding:0;border-color:var(--hi) var(--dk) var(--dk) var(--hi);border-style:solid;border-width:1px;position:relative;z-index:2}
+.grid .h{height:22px}
+.grid .c.s{background:var(--sel);color:#fff}.grid .c.ok{background:var(--hit);color:#fff}
+.grid .c.e{color:transparent}
+.grid .c.pop{animation:p .2s steps(2)}
+@keyframes p{0%{background:#000}100%{background:#fff}}
+.bottom{padding:3px 4px 22px}
+.prog{height:12px;background:#fff;margin-bottom:3px;padding:1px}.prog i{display:block;height:100%;background:repeating-linear-gradient(90deg,#000080 0 8px,transparent 8px 10px);transition:width 1s steps(4)}
+.status{display:flex;gap:3px;font-size:12px}
+.status span{padding:2px 5px;white-space:nowrap}
+.status span:first-child{flex:1}
+.tabs{display:flex;gap:0;margin-top:3px;font-size:12px}
+.tabs span{padding:2px 10px}
+.tabs span.a{background:#fff}
+.tabs #sc{margin-left:auto}
+.dlg{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:5}
+.dlg.on{display:flex}
+.dlg .box{width:290px;background:var(--face)}
+.dlg .body{display:flex;gap:12px;padding:16px 14px 10px;font-size:14px;line-height:1.7}
+.dlg .ico{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid #000080;color:#000080;font-weight:bold;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+.dlg b{display:block;font-size:26px;color:#000080;font-weight:normal}
+.dlg .bt{display:flex;gap:8px;justify-content:center;padding:6px 0 14px}
+.dlg .bt span{min-width:80px;text-align:center;padding:4px 8px;font-size:14px}
+.dlg .bt span.def{outline:1px solid #000;outline-offset:1px}
+.fp{position:absolute;z-index:4;font-size:20px;color:#000080;background:#ffffe1;border:1px solid #000;padding:0 4px;pointer-events:none;animation:fp .7s steps(5) forwards}
+@keyframes fp{from{transform:translateY(0)}to{transform:translateY(-30px);opacity:0}}
+.boss{position:absolute;inset:47px 2px 0;background:var(--face);display:none;flex-direction:column}
+.boss.on{display:flex}
+.boss table{border-collapse:collapse;font-size:13px;width:calc(100% - 8px);margin:4px;background:#fff}
+.boss td,.boss th{border:1px solid var(--face);padding:8px 5px;text-align:right;font-weight:normal}
+.boss th{background:var(--face)}
+.boss td:first-child{text-align:left}
+.note{max-width:360px;font-size:14px;line-height:1.7;background:var(--face);padding:0 0 12px}
+.note .in{padding:8px 14px}
+.note li{margin-bottom:4px}
+.note button{font-family:inherit;font-size:14px;padding:4px 12px;background:var(--face)}
+</style></head><body>
+<div class="phone" id="ph">
+  <div class="sb"><span>9:41</span><span>▂▄▆ ▮</span></div>
+  <div class="win raised">
+    <div class="title"><span>▦</span><span class="t">URIAGE.SHT - SUM10</span><span class="b raised">_</span><span class="b raised">□</span><span class="b raised">×</span></div>
+    <div class="menu"><span>ファイル(<u>F</u>)</span><span>編集(<u>E</u>)</span><span>表示(<u>V</u>)</span><span>挿入(<u>I</u>)</span><span>書式(<u>O</u>)</span></div>
+    <div class="tool"><span class="raised">▭</span><span class="raised">▤</span><span class="raised">⎙</span><span class="raised">✂</span><span class="raised"><b>Σ</b></span><span class="raised">%</span></div>
+    <div class="fx"><span class="ref sunken" id="ref">A1</span><span class="fn">=</span><span class="fbox sunken"><span class="f" id="f"></span><span class="v" id="v"></span></span></div>
+    <div class="gw sunken"><div class="grid" id="g"></div></div>
+    <div class="bottom">
+      <div class="prog sunken"><i id="pb" style="width:100%"></i></div>
+      <div class="status"><span class="sunken" id="st">自動保存 1:30</span><span class="sunken" id="cnt">合計: 0　データの個数: 0</span></div>
+      <div class="tabs"><span class="a raised">Sheet1</span><span class="raised">集計</span><span class="raised">前年比</span><span class="sunken" id="sc">計上額 ¥0</span></div>
+    </div>
+  </div>
+  <div class="dlg" id="dlg"><div class="box raised">
+    <div class="title"><span class="t">SUM10</span><span class="b raised">×</span></div>
+    <div class="body"><span class="ico">i</span><div>処理が完了しました。<br>今回の計上額<b id="rs">0</b><span id="rb"></span></div></div>
+    <div class="bt"><span class="raised">実績照会</span><span class="raised def" id="again">再実行</span></div></div></div>
+  <div class="boss" id="boss"><div class="win raised">
+    <div class="title"><span>▦</span><span class="t">月次売上レポート</span><span class="b raised">_</span><span class="b raised">□</span><span class="b raised">×</span></div>
+    <div class="menu"><span>ファイル(<u>F</u>)</span><span>編集(<u>E</u>)</span><span>表示(<u>V</u>)</span><span>印刷(<u>P</u>)</span></div>
+    <table><tr><th style="text-align:left">部門</th><th>7月</th><th>8月</th><th>9月</th><th>前年比</th></tr>
+    <tr><td>営業1課</td><td>4,120</td><td>3,980</td><td>4,410</td><td>104%</td></tr>
+    <tr><td>営業2課</td><td>2,860</td><td>3,105</td><td>2,970</td><td>98%</td></tr>
+    <tr><td>法人営業</td><td>6,540</td><td>6,210</td><td>6,880</td><td>111%</td></tr>
+    <tr><td>EC</td><td>1,930</td><td>2,240</td><td>2,515</td><td>126%</td></tr>
+    <tr><td>代理店</td><td>1,210</td><td>1,180</td><td>1,095</td><td>91%</td></tr>
+    <tr><th style="text-align:left">合計</th><th>16,660</th><th>16,715</th><th>17,870</th><th>106%</th></tr></table>
+  </div></div>
+</div>
+<div class="note raised">
+  <div class="title"><span class="t">説明.txt - メモ帳</span></div>
+  <div class="in"><ul>
+    <li>ドラッグで範囲選択。合計10で青緑、離すと消去→落下・補充</li>
+    <li>得点：2マス10／3マス30／4マス70／5マス以上150</li>
+    <li>制限時間1:30（残り10秒でバーが赤）</li>
+    <li>ボス画面：2本指で下スワイプ</li>
+  </ul>
+  <button class="raised" id="bb">ボス画面 切替</button></div>
+</div>
+<script>
+const C=8,R=12,g=document.getElementById('g'),L='ABCDEFGH';let cells=[],val=[],score=0,best=0,combos=0,over=false,T=90,t=T,s=null,e=null;
+g.appendChild(Object.assign(document.createElement('div'),{className:'h'}));
+for(let c=0;c<C;c++)g.appendChild(Object.assign(document.createElement('div'),{className:'h',textContent:L[c]}));
+for(let r=0;r<R;r++){g.appendChild(Object.assign(document.createElement('div'),{className:'r',textContent:r+1}));
+ for(let c=0;c<C;c++){const d=document.createElement('div');d.className='c';d.dataset.r=r;d.dataset.c=c;val.push(0);cells.push(d);g.appendChild(d)}}
+// ---- 難易度・得点設定 ----
+const W=[16,14,12,11,10,10,9,9,9]; // 1〜9の出現重み（小さい数を多めに＝多マス組を作りやすく）
+const PTS=n=>n>=5?150:n===4?70:n===3?30:10; // マス数別の得点
+const WS=W.reduce((a,b)=>a+b);const rnd=()=>{let x=Math.random()*WS;for(let i=0;i<9;i++){x-=W[i];if(x<0)return i+1}return 9};
+function solvable(){for(let r0=0;r0<R;r0++)for(let c0=0;c0<C;c0++)for(let r1=r0;r1<R;r1++){let sm=0;for(let c1=c0;c1<C;c1++){for(let r=r0;r<=r1;r++)sm+=val[r*C+c1];if(sm===10)return true;if(sm>10)break}}return false}
+function fill(){do{for(let i=0;i<val.length;i++)val[i]=rnd()}while(!solvable());cells.forEach((d,i)=>{d.textContent=val[i];d.classList.remove('e','pop')})}
+const yen=n=>'¥'+n.toLocaleString();
+function floatPt(q,p){const a=cells[q[0]*C+q[1]].getBoundingClientRect(),b=cells[q[2]*C+q[3]].getBoundingClientRect(),o=ph.getBoundingClientRect();
+ const el=Object.assign(document.createElement('div'),{className:'fp',textContent:'+'+p});el.style.left=(a.left+b.right)/2-o.left-10+'px';el.style.top=(a.top+b.bottom)/2-o.top-10+'px';ph.appendChild(el);setTimeout(()=>el.remove(),700)}
+const at=(x,y)=>{const el=document.elementFromPoint(x,y);return el&&el.classList.contains('c')?[+el.dataset.r,+el.dataset.c]:null};
+function rect(){if(!s||!e)return null;return[Math.min(s[0],e[0]),Math.min(s[1],e[1]),Math.max(s[0],e[0]),Math.max(s[1],e[1])]}
+function paint(){const q=rect();let sum=0,n=0;cells.forEach(d=>d.classList.remove('s','ok'));if(!q){f.textContent='';v.textContent='';cnt.textContent='合計: 0　データの個数: 0';return}
+ for(let r=q[0];r<=q[2];r++)for(let c=q[1];c<=q[3];c++){const i=r*C+c;if(val[i]){sum+=val[i];n++}}
+ const hit=sum===10;for(let r=q[0];r<=q[2];r++)for(let c=q[1];c<=q[3];c++)cells[r*C+c].classList.add(hit?'ok':'s');
+ const a=L[q[1]]+(q[0]+1),b=L[q[3]]+(q[2]+1);ref.textContent=a;f.textContent='=SUM('+a+(a===b?'':':'+b)+')';
+ v.textContent=sum;v.className='v'+(hit?' hit':'');cnt.textContent='合計: '+sum+'　データの個数: '+n;
+ if(hit&&!paint.h&&navigator.vibrate)navigator.vibrate(15);paint.h=hit;return sum}
+g.addEventListener('pointerdown',ev=>{if(busy||over)return;const p=at(ev.clientX,ev.clientY);if(!p)return;s=e=p;paint()});
+g.addEventListener('pointermove',ev=>{if(!s)return;const p=at(ev.clientX,ev.clientY);if(p&&(p[0]!==e[0]||p[1]!==e[1])){e=p;paint()}});
+let busy=false;
+function drop(){const H=cells[0].offsetHeight;
+ for(let c=0;c<C;c++){const col=[];for(let r=R-1;r>=0;r--){const i=r*C+c;if(val[i])col.push({v:val[i],from:r})}
+  let k=0;for(let r=R-1;r>=0;r--){const i=r*C+c,d=cells[i];let v,dist;
+   if(k<col.length){v=col[k].v;dist=r-col[k].from}else{v=rnd();dist=r+1+(k-col.length)}k++;
+   val[i]=v;d.textContent=v;d.classList.remove('e','pop');
+   if(dist>0){d.style.transition='none';d.style.transform=`translateY(${-dist*H}px)`;d.offsetHeight;
+    d.style.transition=`transform ${.18+dist*.04}s cubic-bezier(.3,1.25,.6,1)`;d.style.transform='translateY(0)'}}}
+ if(!solvable())setTimeout(fill,450);setTimeout(()=>busy=false,450)}
+addEventListener('pointerup',()=>{if(!s)return;const q=rect();if(paint()===10){busy=true;for(let r=q[0];r<=q[2];r++)for(let c=q[1];c<=q[3];c++){const i=r*C+c;if(val[i]){val[i]=0;cells[i].classList.add('e','pop')}}const n=(q[2]-q[0]+1)*(q[3]-q[1]+1),p=PTS(n);score+=p;combos++;floatPt(q,p);sc.textContent='計上額 '+yen(score);setTimeout(drop,200)}
+ s=e=null;paint.h=false;cells.forEach(d=>d.classList.remove('s','ok'))});
+const fmt=x=>Math.floor(x/60)+':'+String(x%60).padStart(2,'0');
+setInterval(()=>{if(over)return;t--;st.textContent='自動保存 '+fmt(t);pb.style.width=t/T*100+'%';pb.style.background=t<=10?'#800000':'';if(t<=0)end()},1000);
+function end(){over=true;s=e=null;paint();const nb=score>best;best=Math.max(best,score);
+ rs.textContent=yen(score);rb.textContent='照合 '+combos+'件 ／ '+(nb&&score>0?'自己ベスト更新':'自己ベスト '+yen(best));dlg.classList.add('on')}
+function restart(){dlg.classList.remove('on');score=0;combos=0;t=T;over=false;sc.textContent='計上額 ¥0';st.textContent='自動保存 '+fmt(T);pb.style.width='100%';
+ fill()}
+again.onclick=restart;fill();
+const boss=document.getElementById('boss'),tg=()=>boss.classList.toggle('on');bb.onclick=tg;
+let ty=null;ph.addEventListener('touchstart',ev=>{ty=ev.touches.length===2?ev.touches[0].clientY:null},{passive:true});
+ph.addEventListener('touchend',ev=>{if(ty!==null&&ev.changedTouches[0].clientY-ty>60)tg();ty=null});
+</script></body></html>
